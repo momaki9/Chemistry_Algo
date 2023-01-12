@@ -1,7 +1,7 @@
-const Answer = () => {
+const Answer = ({submittedValue, changeFunction}) => {
     return (
         <>
-            <input placeholder='Enter your answer'></input>
+            <input placeholder='Enter your answer' value={submittedValue} onChange={changeFunction} name={submittedValue}></input>
         </>
     )
 };

@@ -1,7 +1,7 @@
-const Processing = () => {
+const Processing = ({anspro}) => {
     return (
         <>
-            <button>Check your Answer</button>
+            <button onClick={anspro}>Check your Answer</button>
         </>
     )
 };
