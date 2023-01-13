@@ -4,16 +4,69 @@ import Answer from '../components/Answer';
 import Processing from "../components/Processing";
 import Footer from "../components/Footer";
 import { useState } from 'react';
+import { massRandomizer, compoundRandomizer, specificRandomizer, generateRandomSeed } from '../utils/instancing'
 
-const instance = {
+const library = {
     mass: 5.32,
     volume: 390.00,
-    solvent: 'HF',
-    molarMass: 20.01
+    set: [
+        {
+            compound: "HCl",
+            molarMass: 36.458
+        },
+        {
+            compound: "HF",
+            molarMass: 20.01
+        },
+        {
+            compound: "HBr",
+            molarMass: 80.91
+        },
+        {
+            compound: "NaCl",
+            molarMass: 58.44
+        },
+        {
+            compound: "HI",
+            molarMass: 127.911
+        },
+        {
+            compound: "NaBr",
+            molarMass: 102.894
+        },
+        {
+            compound: "NaOH",
+            molarMass: 39.997
+        },
+        {
+            compound: "KCl",
+            molarMass: 74.5513
+        },
+        {
+            compound: "LiBr",
+            molarMass: 86.845
+        },
+        {
+            compound: "RbCl",
+            molarMass: 120.921
+        },
+        {
+            compound: "CaS",
+            molarMass: 72.143
+        }
+    ]
 }
 
-const Algo = () => {
+const instance = {
+    mass: massRandomizer(library.mass),
+    volume: specificRandomizer(library.volume),
+    testCompound: compoundRandomizer(library.set)
+}
 
+console.log(instance.testCompound.compound)
+console.log(instance.testCompound.molarMass)
+
+const Algo = () => {
     const [answer, setAnswer] = useState('');
     const handleChange = (e) => {
         const studentAnswer = e.target.value;
@@ -22,17 +75,11 @@ const Algo = () => {
 
     function anspro () {
         console.log("This is anspro function molarity.0")
-        console.log(answer)
-        
-        const moles = instance.mass / instance.molarMass;
-        console.log(moles)
+        const moles = instance.mass / instance.testCompound.molarMass;
         const volumeInLiters = instance.volume / 1000;
-        const teacherAnswer = moles / volumeInLiters
-        console.log(teacherAnswer)
-
-        const upperTolerance = teacherAnswer * 0.05 + teacherAnswer
-        const lowerTolerance = teacherAnswer - 0.05 * teacherAnswer 
-        console.log(`tolerance upper: ${upperTolerance}; lower: ${lowerTolerance}`)
+        const teacherAnswer = moles / volumeInLiters;
+        const upperTolerance = teacherAnswer * 0.05 + teacherAnswer;
+        const lowerTolerance = teacherAnswer - 0.05 * teacherAnswer;
 
         if (answer <= upperTolerance && answer >= lowerTolerance) {
             console.log('answer correct!')
@@ -45,10 +92,15 @@ const Algo = () => {
     return (
         <>
             <Header />
-            <Question mass={instance.mass} volume={instance.volume} solvent={instance.solvent}/>
+            <Question mass={instance.mass} volume={instance.volume} solvent={instance.testCompound.compound}/>
             <Answer submittedValue={answer} changeFunction={handleChange} name={answer}/>
             <Processing anspro={anspro}/>
             <Footer />
+            <div>
+                <h1>Test</h1>
+                <button onClick={generateRandomSeed}>See another version</button>
+                <h4>Hint: divide mass by molar mass to get moles then divide by volume to get molarity</h4>
+            </div>
         </>
     )
 };
