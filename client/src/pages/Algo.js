@@ -63,9 +63,6 @@ const instance = {
     testCompound: compoundRandomizer(library.set)
 }
 
-console.log(instance.testCompound.compound)
-console.log(instance.testCompound.molarMass)
-
 const Algo = () => {
     const [answer, setAnswer] = useState('');
     const handleChange = (e) => {

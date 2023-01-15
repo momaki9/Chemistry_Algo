@@ -1,3 +1,47 @@
-#testcss {
-    color: chocolate;
+#form-page {
+    color: rgb(40, 18, 2);
+    background-color: antiquewhite;
+    margin: 2%;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#heading {
+    font-style: italic;
+    align-self: center;
+}
+
+#login-form, #signup-form {
+    padding: 3%;
+}
+
+.form-label {
+    padding: 2%;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.btn {
+    margin: 1%;
+    padding: 1%;
+    background-color: cadetblue;
+    border-radius: 8%;
+    font-weight: bold;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(147, 221, 223);
+}
+
+#login-username, #login-password, #signup-username, #signup-password {
+  padding: 0.5%;
+  border: 2px solid cadetblue;
+  outline: none;
+}
+
+#login-username:focus, #login-password:focus, #signup-username:focus, #signup-password:focus {
+    border-color: rgb(38, 91, 93);
 }
