@@ -30,11 +30,11 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path="/home"
+            path="/"
             element={<Home />}
           />
           <Route
-            path="/"
+            path="/molarity"
             element={<Algo />}
           />
           <Route
