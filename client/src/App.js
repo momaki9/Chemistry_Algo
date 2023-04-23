@@ -3,7 +3,10 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
+import Outline from "./components/Outline";
 import Random from "./pages/Random";
+import Topics from "./components/nomenclature/Topics";
+import BinaryIonic from "./components/nomenclature/BinaryIonic";
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -40,6 +43,18 @@ function App() {
           <Route
             path="/dev"
             element={<Random />}
+          />
+          <Route
+            path="/topics"
+            element={<Outline />}
+          />
+          <Route
+            path="/nomenclature"
+            element={<Topics />}
+          />
+          <Route
+            path="/nomenclature/binaryionic"
+            element={<BinaryIonic />}
           />
         </Routes>
       </Router>

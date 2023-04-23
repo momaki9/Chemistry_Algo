@@ -61,7 +61,7 @@ const instance = {
     mass: massRandomizer(library.mass),
     volume: specificRandomizer(library.volume),
     testCompound: compoundRandomizer(library.set)
-}
+};
 
 const Algo = () => {
     const [answer, setAnswer] = useState('');
@@ -81,6 +81,7 @@ const Algo = () => {
         if (answer <= upperTolerance && answer >= lowerTolerance) {
             console.log('answer correct!')
             window.alert('Correct, Great job!')
+            window.location.reload();
         } else {
             window.alert('Incorrect, try again!')
         }
@@ -94,7 +95,6 @@ const Algo = () => {
             <Processing anspro={anspro}/>
             <Footer />
             <div>
-                <h1>Test</h1>
                 <button onClick={generateRandomSeed}>See another version</button>
                 <h4>Hint: divide mass by molar mass to get moles then divide by volume to get molarity</h4>
             </div>

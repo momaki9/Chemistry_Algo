@@ -11,7 +11,7 @@ const massRandomizer = (mass) => {
 
 // generate a random index value between 1 and 10 and return the value in the array with that generated index
 const compoundRandomizer = (arr) => {
-    const index = Math.floor(Math.random() * 10) + 1;
+    const index = Math.floor(Math.random() * arr.length-1) + 1;
     return arr[index];
 }
 
