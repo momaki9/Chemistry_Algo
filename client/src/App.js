@@ -7,6 +7,8 @@ import Outline from "./components/Outline";
 import Random from "./pages/Random";
 import Topics from "./components/nomenclature/Topics";
 import BinaryIonic from "./components/nomenclature/BinaryIonic";
+import EandMFormula from "./components/formulas/EandMFormula";
+import EmpiricalFormula from "./components/formulas/EmpiricalFormula";
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -55,6 +57,14 @@ function App() {
           <Route
             path="/nomenclature/binaryionic"
             element={<BinaryIonic />}
+          />
+            <Route
+            path="/formula"
+            element={<EandMFormula />}
+          />
+          <Route
+            path="/formula/empirical"
+            element={<EmpiricalFormula />}
           />
         </Routes>
       </Router>

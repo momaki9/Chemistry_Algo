@@ -2,6 +2,7 @@ import instancing from "../../utils/instancing";
 import { useState } from "react";
 import Answer from "../Answer";
 
+
 const binaryIonicCompounds = [
     {
         compound: "NaCl",
@@ -29,13 +30,14 @@ const binaryIonicCompounds = [
     }
 ];
 
-console.log(binaryIonicCompounds.length)
+// console.log(binaryIonicCompounds.length)
 const randomBinaryComp = instancing.compoundRandomizer(binaryIonicCompounds);
-console.log(randomBinaryComp);
+// console.log(randomBinaryComp);
 
 const BinaryIonic = () => {
 
     const [answer, setAnswer] = useState('');
+    const [testFeedback, setTestFeedback] = useState('');
     const handleChange = (e) => {
         const studentAnswer = e.target.value;
         setAnswer(studentAnswer);
@@ -45,10 +47,12 @@ const BinaryIonic = () => {
         const teacherAnswer = randomBinaryComp.name;
         const studentAnswer = answer.toLowerCase().trim();
         if (studentAnswer == teacherAnswer) {
-            window.alert("Good Job!");
+            setTestFeedback("Correct!");
         }
         else {
-            window.alert("Incorrect, try again!")
+            // window.alert("Incorrect, try again!");
+            // console.log("false");
+            setTestFeedback("Wrong!");
         }
     }
 
@@ -67,6 +71,7 @@ const BinaryIonic = () => {
         <Answer submittedValue={answer} changeFunction={handleChange} name={answer} />
         <button onClick={anspro}>Check my answer</button>
         <button onClick={instancing.generateRandomSeed}>Try Another!</button>
+        <h3 value={testFeedback}>{testFeedback}</h3>
         </>
     )
 };

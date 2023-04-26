@@ -6,6 +6,7 @@ const Outline = () => {
         <ul>
             <li><a href="/molarity">Molarity</a></li>
             <li><a href="/nomenclature" >Nomenclature</a></li>
+            <li><a href="/formula">Empirical and Molecular Formulas</a></li>
         </ul>
         </>
     )

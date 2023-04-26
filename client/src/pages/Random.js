@@ -1,3 +1,4 @@
+import Feedback from "../components/Feedback";
 
 const library = {
     mass: 202,
@@ -103,6 +104,7 @@ const Random = () => {
         <button onClick={compoundRandomizer}>Compound Picker</button> */}
             <br />
             <button onClick={generateRandomSeed}>See Another Instance</button>
+            <Feedback />
         </>
     )
 }
